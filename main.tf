@@ -18,9 +18,9 @@ resource "aws_ssoadmin_managed_policy_attachment" "this" {
 }
 
 resource "aws_ssoadmin_permission_set_inline_policy" "this" {
-  for_each = toset(var.inline_policy_jsons)
+  for_each = var.inline_policy_jsons
 
   instance_arn       = aws_ssoadmin_permission_set.this.instance_arn
   permission_set_arn = aws_ssoadmin_permission_set.this.arn
-  inline_policy      = each.key
+  inline_policy      = each.value
 }

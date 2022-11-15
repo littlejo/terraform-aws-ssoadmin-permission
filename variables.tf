@@ -27,7 +27,7 @@ variable "managed_policy_arns" {
 }
 
 variable "inline_policy_jsons" {
-  description = "List of inline policies arns"
-  type        = list(string)
-  default     = []
+  description = "Map of inline policies arns"
+  type        = map(string)
+  default     = {}
 }
